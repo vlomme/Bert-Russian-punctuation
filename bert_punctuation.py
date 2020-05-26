@@ -152,6 +152,7 @@ class Bert_punctuation(object):
                     words = words.replace(' [MASK]', ',', 1)
                 else:
                     words = words.replace(' [MASK]', '', 1)
+            words = words.replace(' [MASK]', '')
             #print(words)
             sens.append(words)
         return sens
