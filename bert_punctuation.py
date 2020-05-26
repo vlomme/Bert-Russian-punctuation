@@ -147,11 +147,12 @@ class Bert_punctuation(object):
             #print(words)
             result = self.what_mask(words)
             #print(result)
-            for i in range(1, max(result)+1):
-                if i in result:
-                    words = words.replace(' [MASK]', ',', 1)
-                else:
-                    words = words.replace(' [MASK]', '', 1)
+            if result:
+                for i in range(1, max(result)+1):
+                    if i in result:
+                        words = words.replace(' [MASK]', ',', 1)
+                    else:
+                        words = words.replace(' [MASK]', '', 1)
             words = words.replace(' [MASK]', '')
             #print(words)
             sens.append(words)
