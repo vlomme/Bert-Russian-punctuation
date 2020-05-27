@@ -145,6 +145,9 @@ class Bert_punctuation(object):
             words = ' '.join(choice_list).replace(' ,',',').replace(' .','.').replace(' !','!').replace(' ?','?').replace(' :',':').replace(' ;',';').replace(' »','»').replace('« ','«')
             words = words.replace('[MASK] [MASK]','[MASK]').replace('[MASK] [MASK]','[MASK]')
             #print(words)
+            if words.startswith('[MASK] '):
+                words = words.replace('[MASK] ','',1):
+            
             result = self.what_mask(words)
             #print(result)
             if result:
